@@ -2,6 +2,8 @@
 
 **NeighborShare Hub** is a modern, peer-to-peer neighborhood rental marketplace built with Next.js, Supabase, and Razorpay. It allows neighbors to safely rent items (like tools, electronics, and outdoor gear) to one another, fostering community and reducing waste.
 
+**Live Demo:** [neighborshare-hub.vercel.app](https://neighborshare-hub.vercel.app/)
+
 ## Screenshots
 
 ### Landing Page & Marketplace
