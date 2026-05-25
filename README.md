@@ -1,10 +1,8 @@
-# NeighborShare Hub 🏡
+# NeighborShare Hub 
 
 **NeighborShare Hub** is a modern, peer-to-peer neighborhood rental marketplace built with Next.js, Supabase, and Razorpay. It allows neighbors to safely rent items (like tools, electronics, and outdoor gear) to one another, fostering community and reducing waste.
 
-## 📸 Screenshots
-
-*(Replace the placeholder links below with your actual screenshot images once you take them. Just drag and drop your images into the `public/screenshots` folder!)*
+## Screenshots
 
 ### Landing Page & Marketplace
 ![Marketplace Screenshot](public/screenshots/landing.png)
@@ -24,7 +22,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Authentication**: Secure email/password login and profiles powered by Supabase Auth.
 - **Database & Storage**: PostgreSQL schema with strict Row Level Security (RLS) for data privacy, plus Supabase Storage for listing images.
@@ -33,7 +31,7 @@
 - **Trust Scores**: Automated review system that generates a 0-5 trust score for users.
 - **Dispute Resolution**: Dedicated admin dashboard for handling conflicts, issuing refunds, and banning bad actors.
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS & shadcn/ui
@@ -41,7 +39,7 @@
 - **Payments**: Razorpay
 - **Deployment**: Vercel
 
-## 🛠️ Local Development
+## Local Development
 
 First, copy `.env.example` to `.env.local` and fill in your Supabase and Razorpay API keys.
 
