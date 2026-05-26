@@ -54,4 +54,4 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-this web app tested using [TestGrid.io](https://www.testgrid.io/)
+This web app was tested using [TestGrid.io](https://www.testgrid.io/)
