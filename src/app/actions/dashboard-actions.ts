@@ -122,3 +122,34 @@ export async function mockCheckout(bookingId: string, amount: number) {
 
   revalidatePath('/dashboard')
 }
+
+export async function updateProfile(formData: FormData) {
+  const supabase = createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error("Not logged in")
+
+  const displayName = formData.get("display_name") as string
+  const phone = formData.get("phone") as string
+  const bio = formData.get("bio") as string
+
+  if (!displayName || displayName.trim().length === 0) {
+    return { error: "Username/Display name cannot be empty" }
+  }
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      display_name: displayName.trim(),
+      phone: phone ? phone.trim() : null,
+      bio: bio ? bio.trim() : "",
+    } as never)
+    .eq('id', user.id)
+
+  if (error) {
+    return { error: error.message }
+  }
+
+  revalidatePath('/dashboard')
+  revalidatePath('/')
+  return { success: true }
+}

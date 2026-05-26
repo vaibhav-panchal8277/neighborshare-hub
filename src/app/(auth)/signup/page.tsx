@@ -15,12 +15,19 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
     setIsLoading(true)
     setError(null)
-    const result = await signup(formData)
-    if (result?.error) {
-      setError(result.error)
+    
+    const formData = new FormData(e.currentTarget)
+    try {
+      const result = await signup(formData)
+      if (result?.error) {
+        setError(result.error)
+        setIsLoading(false)
+      }
+    } catch {
       setIsLoading(false)
     }
   }
@@ -35,7 +42,7 @@ export default function SignupPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form action={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
               <div className="rounded-md bg-destructive/15 p-3 flex items-center gap-2 text-sm text-destructive">
                 <AlertCircle className="h-4 w-4" />

@@ -11,6 +11,7 @@ import { pauseListing, activateListing, deleteListing } from "@/app/actions/my-l
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ChatWindow } from "@/components/messaging/chat-window"
 import { ReviewDialog } from "@/components/reviews/review-dialog"
+import { ProfileSettingsForm } from "@/components/dashboard/profile-settings-form"
 
 // Bound server actions that accept FormData
 async function handleApprove(formData: FormData) {
@@ -56,13 +57,13 @@ export default async function DashboardPage({
 
   const defaultTab = searchParams.tab || 'borrowing'
 
-  // Fetch profiles for razorpay account check
+  // Fetch profiles for dashboard and settings
   const { data: profileData } = await supabase
     .from('profiles')
-    .select('razorpay_account_id')
+    .select('display_name, email, phone, bio, razorpay_account_id')
     .eq('id', user.id)
     .single()
-  const profile = profileData as { razorpay_account_id: string | null } | null
+  const profile = profileData as { display_name: string, email: string | null, phone: string | null, bio: string | null, razorpay_account_id: string | null } | null
 
   // Fetch bookings where user is borrower
   const { data: borrowedData } = await supabase
@@ -373,6 +374,16 @@ export default async function DashboardPage({
         </TabsContent>
 
         <TabsContent value="settings" className="space-y-6">
+          {profile && (
+            <ProfileSettingsForm 
+              initialProfile={{
+                display_name: profile.display_name,
+                email: profile.email || user.email || '',
+                phone: profile.phone,
+                bio: profile.bio
+              }} 
+            />
+          )}
           <Card>
             <CardHeader>
               <CardTitle>Receive Payouts (Razorpay)</CardTitle>
