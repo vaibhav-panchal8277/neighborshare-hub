@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu, PlusCircle, Search } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { CONSTANTS } from "@/lib/constants"
 import { useState } from "react"
 
@@ -20,9 +21,13 @@ export function MobileNav() {
       } />
       <SheetContent side="left" className="w-[300px] sm:w-[400px]">
         <Link href="/" className="flex items-center mb-8" onClick={() => setOpen(false)}>
-          <span className="font-heading font-bold text-xl">
-            {CONSTANTS.APP_NAME}
-          </span>
+          <Image
+            src="/logo.png"
+            alt={CONSTANTS.APP_NAME}
+            width={160}
+            height={44}
+            className="h-9 w-auto object-contain translate-y-1"
+          />
         </Link>
         <div className="flex flex-col gap-4">
           <div className="relative">

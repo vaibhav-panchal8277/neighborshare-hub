@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { CONSTANTS } from "@/lib/constants"
 
 export function Footer() {
@@ -7,10 +8,16 @@ export function Footer() {
       <div className="container py-10 md:py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="font-heading font-bold text-xl">{CONSTANTS.APP_NAME}</span>
+            <Link href="/" className="flex items-center -ml-5 -mt-12">
+              <Image
+                src="/logo.png"
+                alt={CONSTANTS.APP_NAME}
+                width={1200}
+                height={1000}
+                className="h-32 w-auto object-contain object-left"
+              />
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="-mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Borrow what you need, lend what you don&apos;t. Build a stronger, more sustainable neighborhood.
             </p>
           </div>

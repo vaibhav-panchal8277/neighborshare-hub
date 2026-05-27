@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Search, PlusCircle } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -32,13 +33,18 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-6 md:gap-10">
           <MobileNav />
-          <Link href="/" className="hidden md:flex items-center space-x-2">
-            <span className="font-heading font-bold sm:inline-block">
-              {CONSTANTS.APP_NAME}
-            </span>
+          <Link href="/" className="hidden md:flex items-center -ml-6 -mr-6">
+            <Image
+              src="/logo.png"
+              alt={CONSTANTS.APP_NAME}
+              width={2400}
+              height={2000}
+              className="h-40 w-auto object-contain -translate-y-1"
+              priority
+            />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link
@@ -56,17 +62,17 @@ export async function Navbar() {
           </nav>
         </div>
 
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <div className="w-full max-w-sm hidden md:flex items-center relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <div className="flex flex-1 items-center justify-end gap-4">
+          <div className="w-full max-w-xs hidden md:flex items-center relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Search tools, gear, etc..."
-              className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 pl-9"
+              className="flex h-9 w-full rounded-full border border-input/50 bg-muted/40 hover:bg-muted/60 hover:border-input px-3 py-1 text-sm transition-all placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:bg-background pl-9 shadow-sm"
             />
           </div>
 
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center gap-3">
             {!user ? (
               <>
                 <Link href="/login" className="hidden sm:block">
@@ -80,15 +86,15 @@ export async function Navbar() {
               <>
                 <NotificationBell />
                 <Link href="/listings/new" className="hidden md:flex">
-                  <Button size="sm" className="gap-1">
+                  <Button className="gap-1.5 shadow-sm h-9">
                     <PlusCircle className="h-4 w-4" />
                     List an Item
                   </Button>
                 </Link>
-                
+
                 <DropdownMenu>
                   <DropdownMenuTrigger render={
-                    <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Button variant="ghost" className="relative h-9 w-9 rounded-full flex items-center justify-center p-0">
                       <Avatar className="h-8 w-8">
                         <AvatarImage src={profile?.avatar_url || ""} alt="@user" />
                         <AvatarFallback>{initial}</AvatarFallback>

@@ -23,6 +23,22 @@ export const metadata: Metadata = {
     template: `%s | ${CONSTANTS.APP_NAME}`,
   },
   description: "Borrow what you need, lend what you don't. Build a stronger, more sustainable neighborhood.",
+  icons: {
+    icon: [
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    shortcut: "/logo-icon.png",
+    apple: "/logo-icon.png",
+  },
+  openGraph: {
+    title: CONSTANTS.APP_NAME,
+    description: "Borrow what you need, lend what you don't. Build a stronger, more sustainable neighborhood.",
+    images: [{ url: "/logo.png" }],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/logo.png"],
+  },
 }
 
 export default function RootLayout({

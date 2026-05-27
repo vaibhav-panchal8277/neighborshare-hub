@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Search, MapPin, Hammer, Wrench, Scissors, Camera, Music, Book, Bike, Coffee } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -22,6 +23,16 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 flex flex-col items-center text-center">
+          <div className="mb-8">
+            <Image
+              src="/logo-icon.png"
+              alt="Borrowly"
+              width={100}
+              height={100}
+              className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-2xl"
+              priority
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold max-w-4xl tracking-tight text-balance">
             Borrow what you need, lend what you don&apos;t.
           </h1>
