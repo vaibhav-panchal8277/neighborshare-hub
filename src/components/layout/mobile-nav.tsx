@@ -19,17 +19,18 @@ export function MobileNav() {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       } />
-      <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-        <Link href="/" className="flex items-center mb-8" onClick={() => setOpen(false)}>
+      <SheetContent side="left" className="w-[300px] sm:w-[400px] p-6 pt-12">
+        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
             src="/logo.png"
             alt={CONSTANTS.APP_NAME}
-            width={160}
-            height={44}
-            className="h-9 w-auto object-contain translate-y-1"
+            width={2500}
+            height={2000}
+            className="h-28 w-auto object-contain translate-y-1"
+            priority
           />
         </Link>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <input
@@ -61,8 +62,8 @@ export function MobileNav() {
               Dashboard
             </Link>
           </nav>
-          
-          <div className="mt-8">
+
+          <div className="mt-5">
             <Button className="w-full gap-2" onClick={() => setOpen(false)}>
               <PlusCircle className="h-4 w-4" />
               List an Item

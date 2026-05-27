@@ -34,15 +34,15 @@ export async function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-6 md:gap-10">
+        <div className="flex items-center gap-2 sm:gap-6 md:gap-10">
           <MobileNav />
-          <Link href="/" className="hidden md:flex items-center -ml-6 -mr-6">
+          <Link href="/" className="flex items-center -ml-4 -mr-4 sm:-ml-6 sm:-mr-6">
             <Image
               src="/logo.png"
               alt={CONSTANTS.APP_NAME}
               width={2400}
               height={2000}
-              className="h-40 w-auto object-contain -translate-y-1"
+              className="h-24 sm:h-32 md:h-40 w-auto object-contain -translate-y-0.5 md:-translate-y-1"
               priority
             />
           </Link>
